@@ -15,6 +15,11 @@
   border: 0;
 }
 
+body {
+  font-size: 14px;
+  line-height: 1.2%;
+}
+
 *,
 *:before,
 *:after {

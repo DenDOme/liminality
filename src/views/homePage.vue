@@ -4,14 +4,18 @@
         <div class="container">
             <div class="main__row">
                 <div class="main__left">
-                    <div class="main__header"></div>
-                    <div class="main__text"></div>
+                    <div class="main__header">Проект <span class="header-color">Лиминалитй</span></div>
+                    <div class="main__text">Lorem ipsum dolor sit amet consectetur. Et platea consectetur et elit elit
+                        volutpat maecenas auctor. Leo maecenas viverra in lorem sed nisi tempus sit. Vitae et risus nec vel
+                        mi dui magna. Ac sit pellentesque vitae vitae morbi lobortis diam mus.</div>
                     <div class="main__buttons">
-                        <p class="ip"></p>
-                        <button class="main__button" @click="copyIp"></button>
+                        <p class="ip">play.backrooms-liminality.ru</p>
+                        <button class="main__button" @click="copyIp">скопировать</button>
                     </div>
                 </div>
-                <img class="main__img" src="../assets/fire.png" alt="">
+                <div class="main__right" v-bind:style="{ position: 'relative' }">
+                    <img class="main__img" src="../assets/fire.png" alt="">
+                </div>
             </div>
         </div>
     </section>
@@ -92,3 +96,50 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+.main {
+    background-color: #DFDFDF;
+    padding: 50px 0;
+}
+
+.main__buttons {
+    display: flex;
+    align-items: center;
+}
+
+.main__text {
+    margin: 20px 0;
+}
+
+.main__left {
+    max-width: 450px;
+}
+
+.main__header {
+    font-size: 25px;
+    color: #131313
+}
+
+.main__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 50px;
+}
+
+.main__img {
+    position: relative;
+}
+
+.main__right::after {
+    content: ' ';
+    background: url('../assets/item.png');
+    position: absolute;
+    top: 48%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 400px;
+}
+</style>
