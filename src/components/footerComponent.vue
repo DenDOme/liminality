@@ -1,13 +1,15 @@
 <template>
-    <footer class="footer">
+    <footer class="h-[120px] flex items-center bg-dim-100">
         <div class="container">
-            <div class="footer__menu">
-                <router-link to="/"><img src="../assets/logo2.png" alt="" class="logo"></router-link>
-                <nav class="footer__menu-items">
-                    <button id="ipButton" @click="showIp">Скопировать Ip</button>
-                    <a href="" class="footer-links"><img src="../assets/vk.svg" alt="" class="socials"></a>
-                    <a href="" class="footer-links"><img src="../assets/discord.svg" alt="" class="socials"></a>
-                    <a href="" class="footer-links"><img src="../assets/github.svg" alt="" class="socials"></a>
+            <div class="flex items-center justify-between">
+                <router-link to="/"><img src="../assets/imgs/logo2.png" alt="" class="logo"></router-link>
+                <nav class="flex items-center gap-[20px]">
+                    <button
+                        class="w-[320px] h-[60px] text-[20px] text-dim-100 bg-center bg-button border-[3px] border-dim-500"
+                        @click="showIp">Скопировать Ip</button>
+                    <a href=""><img src="../assets/imgs/vk.svg" alt="" class="socials"></a>
+                    <a href=""><img src="../assets/imgs/discord.svg" alt="" class="socials"></a>
+                    <a href=""><img src="../assets/imgs/github.svg" alt="" class="socials"></a>
                 </nav>
             </div>
         </div>
@@ -19,37 +21,19 @@ export default {
     name: 'footerComponent',
     methods: {
         showIp() {
-            console.log('click');
-        }
+            const textToCopy = 'play.backrooms-liminality.ru';
+
+            const el = document.createElement('textarea');
+            el.value = textToCopy;
+            el.setAttribute('readonly', '');
+            el.style.position = 'absolute';
+            el.style.left = '-9999px';
+            document.body.appendChild(el);
+            el.select();
+            document.execCommand('copy');
+            document.body.removeChild(el);
+
+        },
     }
 }
 </script>
-
-<style scoped>
-#ipButton {
-    border: 3px solid #000;
-    width: 320px;
-    height: 60px;
-    font-size: 25px;
-    color: #fff;
-    background: url('../assets/button.png') center;
-}
-
-.footer {
-    height: 120px;
-    display: flex;
-    align-items: center;
-}
-
-.footer__menu {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.footer__menu-items {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-</style>

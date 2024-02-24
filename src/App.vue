@@ -3,6 +3,11 @@
 </template>
 
 <style>
+@font-face {
+  font-family: 'minecraft';
+  src: url('~@/assets/minecraft.ttf');
+}
+
 .container {
   max-width: 1320px;
   width: 100%;
@@ -16,8 +21,10 @@
 }
 
 body {
+  font-family: 'minecraft';
   font-size: 14px;
   line-height: 1.2%;
+  background-color: #DFDFDF;
 }
 
 *,
