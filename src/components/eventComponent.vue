@@ -1,5 +1,5 @@
 <template>
-    <router-link to="">
+    <router-link :to="'/events/' + sendEvent.id">
         <div class="bg-dim-200 max-w-[1080px] mx-auto py-[40px] px-[35px] flex items-center justify-between mb-[40px]">
             <div class="left">
                 <img src="" alt="" class="w-[520px] h-[370px] bg-dim-500">

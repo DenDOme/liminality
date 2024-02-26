@@ -16,7 +16,8 @@
                 <hr class="w-[1100px] bg-dim-100 border-0 h-[1px] mx-auto">
                 <div class="tabs">
                     <div class="tab flex flex-col items-center gap-[40px] mt-[40px]" v-show="activeIndex === 0">
-                        <div class="tab-item flex items-center justify-between max-w-[1050px] w-full bg-dim-200 py-[22px] px-[30px]"
+                        <router-link :to="'/wiki/levels/' + level.id"
+                            class="tab-item flex items-center justify-between max-w-[1050px] w-full bg-dim-200 py-[22px] px-[30px]"
                             v-for="level in levels" :key="level.id">
                             <div class="max-w-[600px]">
                                 <div class="mb-[20px] text-[25px]">{{ level.name }}</div>
@@ -25,16 +26,42 @@
                             <div class="right">
                                 <img src="" alt="" class="h-[150px] w-[300px] bg-dim-500">
                             </div>
-                        </div>
+                        </router-link>
                     </div>
-                    <div class="tab" v-show="activeIndex === 1">
-
+                    <div class="tab flex items-center justify-between mt-[40px] mx-auto flex-wrap gap-y-[40px]"
+                        v-show="activeIndex === 1">
+                        <router-link :to="'/wiki/objects/' + object.id"
+                            class="tab-item items-center justify-between max-w-[250px] w-full bg-dim-200 py-[30px] px-[25px]"
+                            v-for="object in objects" :key="object.id">
+                            <img src="" alt="" class="w-[200px] h-[200px] bg-dim-500">
+                            <div class="text-[25px] text-dim-400 mt-[15px] mb-[5px]">{{ object.name }}</div>
+                            <div class="leading-[16px]">{{ object.text }}</div>
+                        </router-link>
                     </div>
-                    <div class="tab" v-show="activeIndex === 2">
-
+                    <div class="tab flex flex-col items-center gap-[40px] mt-[40px]" v-show="activeIndex === 2">
+                        <router-link :to="'/wiki/mobs/' + mob.id"
+                            class="tab-item flex items-center justify-between max-w-[1050px] w-full bg-dim-200 py-[22px] px-[30px]"
+                            v-for="mob in mobs" :key="mob.id">
+                            <div class="max-w-[600px]">
+                                <div class="mb-[20px] text-[25px]">{{ mob.name }}</div>
+                                <div class="leading-[16px]">{{ mob.text }}</div>
+                            </div>
+                            <div class="right">
+                                <img src="" alt="" class="h-[150px] w-[300px] bg-dim-500">
+                            </div>
+                        </router-link>
                     </div>
-                    <div class="tab" v-show="activeIndex === 3">
+                    <div class="tab flex flex-col items-center gap-[40px] mt-[40px]" v-show="activeIndex === 3">
+                        <router-link :to="'/wiki/groups/' + group.id"
+                            class="tab-item flex items-center justify-between max-w-[1050px] w-full bg-dim-200 py-[22px] px-[30px]"
+                            v-for="group in groups" :key="group.id">
+                            <img src="" alt="" class="h-[250px] w-[125px] bg-dim-500 ">
+                            <div class="max-w-[600px]">
+                                <div class="mb-[20px] text-[25px] text-dim-400">{{ group.name }}</div>
+                                <div class="leading-[16px]">{{ group.text }}</div>
+                            </div>
 
+                        </router-link>
                     </div>
                 </div>
             </div>
@@ -69,7 +96,7 @@ export default {
             this.activeIndex = number;
         },
         fetchAllData() {
-            const data = wiki.wiki;
+            const data = wiki;
             this.levels = data.levels;
             this.objects = data.objects;
             this.mobs = data.mobs;
