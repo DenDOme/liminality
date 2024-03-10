@@ -1,6 +1,21 @@
 <template>
+  <headerComponent />
   <router-view />
+  <footerComponent />
 </template>
+
+<script>
+import headerComponent from './components/headerComponent.vue';
+import footerComponent from './components/footerComponent.vue';
+
+export default {
+  name: 'main',
+  components: {
+    headerComponent,
+    footerComponent,
+  },
+}
+</script>
 
 <style>
 @font-face {

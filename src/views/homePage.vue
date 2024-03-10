@@ -1,6 +1,5 @@
 <template>
     <div class="wrapper bg-dim-500">
-        <headerComponent />
         <section class="bg-dim-200 py-[100px]">
             <div class="container">
                 <div class="flex items-center justify-between mx-12">
@@ -105,24 +104,15 @@
                 </div>
             </div>
         </section>
-        <footerComponent />
     </div>
 </template>
 
 <script>
-import headerComponent from '../components/headerComponent.vue'
-import footerComponent from '../components/footerComponent.vue'
-
 export default {
     name: 'home',
     displayName: 'homePage',
-    components: {
-        headerComponent,
-        footerComponent
-    },
     methods: {
         copyIp() {
-            console.log('copy ip')
             const textToCopy = this.$refs.textToCopy.innerText;
 
             const el = document.createElement('textarea');

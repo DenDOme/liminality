@@ -1,5 +1,4 @@
 <template>
-    <headerComponent />
     <section class="bg-dim-200 py-[100px]">
         <div class="container">
             <div class="flex items-center justify-between">
@@ -22,7 +21,7 @@
 
                 </div>
                 <div class="">
-                    <img src="" alt="" class="bg-gray-500 w-[550px] h-[550px]">
+                    <img src="../assets/imgs/noname.png" alt="" class="bg-gray-500 h-[550px]">
                 </div>
             </div>
         </div>
@@ -34,7 +33,7 @@
                 :centeredSlidesBounds="true">
                 <swiper-slide v-for="slide in slides" :key="slide.id" class="w-[420px]">
                     <div class="w-[420px]">
-                        <img src="" alt="" class="w-[420px] h-[420px] bg-gray-400 mx-auto">
+                        <img :src="slide.img" alt="" class="w-[150px] h-[150px] rounded-[150px] bg-gray-400 mx-auto">
                         <div class="text-dim-300 text-[25px] mt-[50px]">{{ slide.name }}</div>
                         <div class="leading-[16px] mt-[15px]">{{ slide.text }}</div>
                     </div>
@@ -42,24 +41,19 @@
             </swiper>
         </div>
     </section>
-    <footerComponent />
 </template>
 
 <script>
-import headerComponent from '../components/headerComponent.vue'
-import footerComponent from '../components/footerComponent.vue'
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import devs from '../temp-data';
+import devs from '../devs';
 
 export default {
     name: 'about',
     displayName: 'aboutPage',
     components: {
-        headerComponent,
-        footerComponent,
         Swiper,
         SwiperSlide,
     },
@@ -68,7 +62,7 @@ export default {
     },
     data() {
         return {
-            slides: [], // Array to store API slide data
+            slides: devs,
             slideOptions: {
                 navigation: {
                     nextEl: '.swiper-button-next',
@@ -77,15 +71,7 @@ export default {
 
             }
         };
-    },
-    methods: {
-        fetchSlideData() {
-            this.slides = devs.devs;
-        }
-    },
-    mounted() {
-        this.fetchSlideData();
-    },
+    }
 }
 </script>
 
